@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo-list';
+
+  public newTaskTitle: string = '';
+  public newTask: any = {};
+  public taskList: Array<any> = [];
+
+  public createTask(): void {
+ 
+    this.newTask = {
+      title: this.newTaskTitle,
+      date: new Date()
+    }
+
+    this.taskList.push(this.newTask); // Agregando un nuevo elemento a la lista.
+
+    this.newTask = {};
+  }
 }
